@@ -7,7 +7,7 @@ module.exports = {
         attributes: ["id", "name"],
         include: {
           model: Item,
-          attributes: ["id", "name", "todoId"],
+          attributes: ["id", "name"],
         },
       });
 
@@ -52,7 +52,7 @@ module.exports = {
         attributes: ["id", "name"],
         include: {
           model: Item,
-          attributes: ["id", "name", "todoId"],
+          attributes: ["id", "name"],
         },
         where: {
           id,
