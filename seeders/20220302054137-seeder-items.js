@@ -7,13 +7,13 @@ module.exports = {
       [
         {
           name: "New website perintis karya",
-          todoId: 1,
+          TodoId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           name: "Learn Laravel 9",
-          todoId: 1,
+          TodoId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

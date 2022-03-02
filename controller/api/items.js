@@ -3,19 +3,19 @@ const { Item } = require("../../models");
 module.exports = {
   create: async (req, res) => {
     try {
-      const { name, todoId } = req.body;
+      const { name, TodoId } = req.body;
       if (!name) {
         res.status(400).json({
           status: "error",
           message: "Item's name must be filled!",
         });
-      } else if (!todoId) {
+      } else if (!TodoId) {
         res.status(400).json({
           status: "error",
-          message: "Item's todoId must be filled!",
+          message: "Item's TodoId must be filled!",
         });
       } else {
-        await Item.create({ name, todoId });
+        await Item.create({ name, TodoId });
         res.status(201).json({
           status: "success",
           message: "Item successfully created!",
@@ -33,7 +33,7 @@ module.exports = {
       const { id } = req.params;
 
       const data = await Item.findOne({
-        attributes: ["id", "name", "todoId"],
+        attributes: ["id", "name", "TodoId"],
         where: {
           id,
         },
@@ -53,10 +53,10 @@ module.exports = {
   update: async (req, res) => {
     try {
       const { id } = req.params;
-      const { name, todoId } = req.body;
+      const { name, TodoId } = req.body;
 
       const item = await Item.findOne({
-        attributes: ["id", "name", "todoId"],
+        attributes: ["id", "name", "TodoId"],
         where: {
           id,
         },
@@ -72,14 +72,14 @@ module.exports = {
             status: "error",
             message: "Item's name must be filled!",
           });
-        } else if (!todoId) {
+        } else if (!TodoId) {
           res.status(400).json({
             status: "error",
-            message: "Item's todoId must be filled!",
+            message: "Item's TodoId must be filled!",
           });
         } else {
           await item.update(
-            { name, todoId },
+            { name, TodoId },
             {
               where: { id },
             }
@@ -127,7 +127,7 @@ module.exports = {
       if (!item) {
         res.status(404).json({ status: "error", message: "Item not found!" });
       } else {
-        item.todoId = targetTodoId;
+        item.TodoId = targetTodoId;
         await item.save();
         res.status(200).json({
           status: "success",

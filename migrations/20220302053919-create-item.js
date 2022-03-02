@@ -11,7 +11,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
-      todoId: {
+      TodoId: {
         type: Sequelize.INTEGER,
         references: {
           model: "Todos",
